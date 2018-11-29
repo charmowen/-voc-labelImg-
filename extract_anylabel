@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 '''
-该代码用于统计检测目标标签数目以及目标图片数
+该代码用于从voc数据集抽取某几类数据集
+author：chenzhaowen
 '''
 import os
 import os.path
