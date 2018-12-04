@@ -33,10 +33,14 @@ if __name__ == "__main__":
         files = glob.glob(xmlpath + '/*.xml' )
         for xmlFile in files: #遍历文件夹
             n = 0
-            doc=xml.dom.minidom.parse(os.path.join(xmlFile))
-            root=doc.documentElement
-            #获取节点object
-            objectlist=root.getElementsByTagName('object')
+            try:
+                doc=xml.dom.minidom.parse(os.path.join(xmlFile))
+                root=doc.documentElement
+                #获取标签对name/pose之间的值
+                objectlist=root.getElementsByTagName('object')
+            except:
+                print(xmlFile.split("/")[-1])
+                continue
             for node in objectlist:
                 #获取标签name值
                 node_name = node.getElementsByTagName(valuename)
